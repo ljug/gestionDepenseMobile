@@ -1,0 +1,327 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+<link href="http://www.gstatic.com/codesite/ph/17444577587916266307/css/ph_core.css" rel="stylesheet" type="text/css" />
+ <link href="http://code.google.com/css/codesite.pack.04102009.css" rel="stylesheet" type="text/css" />
+  <link  href="/css/styles.css" rel="stylesheet" type="text/css"   />
+  <script language="javascript" src='script/jquery-1.6.min.js'></script>
+  <script language="javascript" src='script/ajax.utilv6.js'></script>
+    <title>Expenses Application v18</title>
+  </head>
+
+  <body>
+    <!-- content -->  
+    <header>
+     <h1 class="page_title">Expenses Application v18</h1>
+  
+ <!-- tabs --> 
+ <div id="tabs" class="gtb">
+      <a id="home" href="#home" class="tab">Home</a>	   
+	
+	  <a id="category" href="#category" class="tab">Category</a> 
+	  <a id="expense" href="#expense" class="tab">Expense</a>	  
+	  <a id="income" href="#income" class="tab">Income</a>	 
+	  <a id="bilan" href="#bilan" class="tab">Bilan</a>	 
+	  <div class="gtbc"></div>
+  </div>
+    </header>
+	<nav>
+			<ul>
+				<li><a href="http://cnamsmb215html.appspot.com/#category">Category</a></li>
+				<li><a href="http://cnamsmb215html.appspot.com/#expense" >Expense</a></li>
+					<li><a href="http://cnamsmb215html.appspot.com/#income" >Income</a></li>
+				
+					<li><a href="http://kamalmokhweb.appspot.com/index.html">HTML 53</a></li>
+			</ul>
+		</nav>	
+		
+ 
+ 
+  
+ <div  id="gc-pagecontent" >
+			
+		
+ 
+  <!-- home page content -->
+   <br>
+  <img src="/images/ajax-loader.gif" style="display: none;" id="imgProgress" />
+  <div class="g-unit" id="home-tab">
+  <h2>Create Flow Chart</h2>
+   
+      <div align="left">
+      <img src="images/appengine_lowers.png" />
+        <img src="images/codeLab1Create.png" />
+      </div>
+      
+        <ol>
+          <li>Cateogry /Expense servlet will be invoked on clicking <b>Save</b>
+            from UI</li>
+          <li>doPut() method of respective servlet will
+            invoke <b>datastore API</b> to persist the data
+            into datastore</li>          
+        </ol>
+      
+      
+    <h2>List Flow Chart</h2>
+     
+      <div align="left">
+        <img src="images/codeLab1List.png" />
+      </div>
+     
+        <ol>
+          <li>Tab selection from UI invokes doGet() of the
+            respective servlet</li>          
+          <li>JSON objects are returned to the UI and
+            custom JSON converter will parse the JSON
+            objects</li>
+        </ol>
+      
+  </div>  
+  
+ 
+    
+   <!-- ******************************************* category start******************************************* -->
+  <div class="g-unit" id="category-tab">
+    <div class ="message" id="category-show-message" style="display:none">
+  </div>
+   <!-- search container -->
+   	<div class="gsc-search-box" id="category-search-ctr">
+   	<!-- section title -->
+   	<h2>All Categories</h2>
+   	<form name="category-search-form" id="category-search-form">
+	   	 <label>Category</label>
+	   	 <input type="text" name="q" id="q" class="gsc-input"/> 
+	     <input type="button" value="Search" onclick="search('category')" class="gsc-search-button" />
+	     <input type="button" value="Add" onclick="add('category')" class="gsc-search-button" />
+	     <input type="reset" id="category-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+    </form>
+   	</div>
+   <!-- list container -->
+   	<div class="results" style="border:0;" id="category-list-ctr">
+          <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th scope="col">Category Name</th>
+                <th scope="col">Category Description</th>
+                <th scope="col">Action</th>                      
+              </tr>
+            </thead>
+            <tbody id="category-list-tbody"></tbody>
+          </table>
+  	</div>
+  
+  	<!-- create container -->
+	  	<div class="create-ctr" id="category-create-ctr">
+	  	<h2>Create Category</h2>
+	  	<form name="category-create-form" id="category-create-form">
+	  	<table width="200" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+	  	<tbody>
+	  	<tr >
+		 <td>Category Name </td>
+          <td><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+		 </tr>
+		<tr>
+           <td>Category Description</td>
+           <td><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="description" id="description" /></td>
+         </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td> 
+          <input type="button" class="save" title="Save" value="Save" onclick="formValidate('category')" />
+          <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('category')" />
+          <input type="reset" id="category-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+         </td>
+        </tr>
+	  	</tbody>
+  </table>
+  </form>
+  </div>
+  
+  </div>
+ <!-- ******************************************* category end******************************************* -->
+  <!-- ******************************************* expense start ******************************************* -->
+  <div class="g-unit" id="expense-tab">
+    <div class ="message" id="expense-show-message" style="display:none">
+  </div>
+	   <!-- search container -->
+	   	<div class="gsc-search-box" id="expense-search-ctr">
+	   	<!-- section title -->
+	   	<h2>All expenses</h2>
+	   	<form name="expense-search-form" id="expense-search-form">
+	   	   <input type="text" name="q" id="q" class="gsc-input"/> 
+	   	   <select id="by" name="expense-searchby" class="gsc-input">
+              <option value="name">expense</option>
+              <option value="category">category</option>
+            </select> 
+            <input type="button" value="Search" onclick="search('expense')" class="gsc-search-button" />
+            <input type="button" value="Add" onclick="add('expense')" class="gsc-search-button" />
+            <input type="reset" id="expense-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+          </form>  
+	   	</div>
+	   <!-- list container -->
+	   	<div class="results" style="border:0;" id="expense-list-ctr">
+           <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+             <thead>
+               <tr>
+                 <th scope="col">Expense Name</th>
+                 <th scope="col">Amount</th>
+                 <th scope="col">Expense date</th>
+                 <th scope="col">Category</th>
+                 
+                 
+                 <th scope="col">Date created</th>
+                 <th scope="col">Action</th>                      
+               </tr>
+             </thead>
+             <tbody id="expense-list-tbody"></tbody>
+           </table>
+	  	</div>
+	  	<!-- create container -->
+	  	<div class="create-ctr" id="expense-create-ctr">
+	  	<h2>Create expense</h2>
+	  	<form name="expense-create-form" id="expense-create-form">
+	  	<table width="200" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+           <tr> 
+           	 <td>Expense Name</td>
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+           </tr>
+           <tr>
+             <td>Expense Amount</td>
+             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="6" name="price" id="price" />LBP</td>
+           </tr>
+           <tr>
+             <tr>
+             <td>Expense date</td>
+             <td><input type="date"    class="gsc-input"   name="expensedate" id="expensedate" /></td>
+           </tr>
+           <tr>
+           
+             <td>Category</td>
+             <td><select id="expense-category-list" name="category"></select></td>
+           </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td> 
+                  <input type="button" class="save" title="Save" value="Save" onclick="formValidate('expense')" />
+                  <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('expense')" />
+                  <input type="reset" id="expense-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+              </td>
+            </tr>
+			 </table>
+			 </form>
+	  	</div>
+	  	<!-- create conatiner ends here -->
+  </div>  
+   <!-- ******************************************* expense end ******************************************* -->
+   
+     <!-- ******************************************* Income start ******************************************* -->
+  <div class="g-unit" id="income-tab">
+    <div class ="message" id="income-show-message" style="display:none">
+  </div>
+	   <!-- search container -->
+	   	<div class="gsc-search-box" id="income-search-ctr">
+	   	<!-- section title -->
+	   	<h2>All Income</h2>
+	   	<form name="income-search-form" id="income-search-form">
+	   	   <input type="text" name="q" id="q" class="gsc-input"/> 
+	   	   <select id="by" name="income-searchby" class="gsc-input">
+              <option value="name">income</option>
+              <option value="categoryincome">category</option>
+            </select> 
+            <input type="button" value="Search" onclick="search('income')" class="gsc-search-button" />
+            <input type="button" value="Add" onclick="add('income')" class="gsc-search-button" />
+            <input type="reset" id="income-search-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+          </form>  
+	   	</div>
+	   <!-- list container -->
+	   	<div class="results" style="border:0;" id="income-list-ctr">
+           <table   style="border-collapse:collapse;">
+             <thead>
+               <tr>
+ 
+               
+                 <th scope="col">Income Name</th>
+                 <th scope="col">Payment Method</th>
+                 <th scope="col">Payer</th>
+                 <th scope="col">Amount LBP</th>
+                 <th scope="col">Payment Date</th>
+                 <th scope="col">Created Date</th>
+                 
+                 <th scope="col">Income Recieved</th>
+                 <th scope="col">Action</th>                      
+               </tr>
+             </thead>
+             <tbody id="income-list-tbody"></tbody>
+           </table>
+	  	</div>
+	  	<!-- create container -->
+	  	<div class="create-ctr" id="income-create-ctr">
+	  	             
+	  	<h2>Create Income</h2>
+	  	<form name="income-create-form" id="income-create-form">
+	  	     <table width="100%" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;">
+           <tr> 
+           	 <td>Income Name</td> 
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="name" id="name" /></span></td>
+           </tr>
+           <tr> 
+           	 <td>Payment Method</td>
+             <td ><span class="readonly">
+             <select   class="gsc-input"   name="paymentmethod" id="paymentmethod">
+             <option value="Check">Check</option>
+             <option value="Cash">Cash</option>
+             </select>
+             </span></td>
+           </tr>
+           <tr> 
+           	 <td>Payer</td>
+             <td ><span class="readonly"><input type="text" style="width: 185px;" autocomplete="off" class="gsc-input" maxlength="2048" name="payer" id="payer" /></span></td>
+           </tr>
+           <tr>
+             <td>Payment Amount</td>
+             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="6" name="priceincome" id="priceincome" />LBP</td>
+           </tr>
+           <tr>
+            <tr>           
+             <td>Category</td>
+             <td><select id="income-categoryincome-list" name="categoryincome"></select></td>
+           </tr>
+             <tr>
+             <td>Income date</td>
+             <td><input type="date"    class="gsc-input"   name="paymentdate" id="paymentdate" /></td>
+           </tr>
+          
+            <tr>
+              <td>&nbsp;</td>
+              <td> 
+                  <input type="button" class="save" title="Save" value="Save" onclick="formValidate('income')" />
+                  <input type="button" class="cancel" title="Cancel" value="Cancel" onclick="cancel('income')" />
+                  <input type="reset" id="income-reset" class="cancel" title="Reset" value="Reset" style="visibility: hidden"/>
+              </td>
+            </tr>
+			 </table>
+			 </form>
+	  	</div>
+	  	<!-- create conatiner ends here -->
+  </div>  
+   <!-- ******************************************* Income end ******************************************* -->
+</div>
+  
+
+<script type="text/javascript">
+
+ $(window).load(function () {
+   init();
+});
+
+</script>
+<footer>
+			<h4>About Mobile Accounting SMB215 - Kamal Mokh, Ahmad Shaaban 
+			<p>CNAM LIBAN 2013 ©</p>
+			<p>Best Viewed HTML5 with :Safari, Chrome and Opera.</p></h4>
+		</footer>
+  </body>
+</html>

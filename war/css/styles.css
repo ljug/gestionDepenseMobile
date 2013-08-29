@@ -1,0 +1,23 @@
+
+    #boxA, #boxB {
+   float:left;padding:10px;margin:10px; -moz-user-select:none;
+}
+#boxA { background-color: #6633FF; width:75px; height:75px;  }
+#boxB { background-color: #FF6699; width:150px; height:150px; }
+    article { width: 950px; display: table; }
+    	html { color: black; background-color: white; text-align: center; font-family: sans-serif; }
+			body { width: 1250px; margin: 0 auto 0 auto; text-align: left; padding: 5px; }
+			
+			header, footer { width: 1250px; display: table; }
+			/* To add style to the footer I simply changed "header" to "header, footer". In other words both header and footer have the same style except for text alignment and background color which is set below. */
+			nav { width: 300px; float: left; display: table; }
+			article { width: 950px; display: table; } 
+			footer { text-align: center; }
+
+			/* Below I have added background colors so you can see where each element is. You can delete them if you want. */
+				body { background-color: white; }
+			header { background-color: gray; }
+			nav { background-color: silver; }
+			article { background-color: white; }
+			footer { background-color:threedshadow; }
+    
