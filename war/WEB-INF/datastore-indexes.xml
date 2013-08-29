@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datastore-indexes
+  autoGenerate="true">
+  
+    <datastore-index kind="Expense" ancestor="true" source="manual">
+        <property name="datecreated" direction="desc"/>
+    </datastore-index>
+    
+ 
+</datastore-indexes>

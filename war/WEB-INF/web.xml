@@ -59,7 +59,23 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Cnamsmb215html</servlet-name>
 		<url-pattern>/cnamsmb215html</url-pattern>
 	</servlet-mapping>
+	
+	
+	
+	 <servlet>
+        <servlet-name>bilan</servlet-name>
+        <servlet-class>com.cnamsmb215html.web.BilanServlet</servlet-class>
+        <jsp-file>Bilan.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bilan</servlet-name>
+        <url-pattern>/bilan</url-pattern>
+        
+    </servlet-mapping>
+	
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
+		<welcome-file>Bilan.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
