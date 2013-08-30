@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
- 
 <%@ page import="java.util.List" %>
 <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
@@ -11,8 +10,8 @@
 <%@ page import="com.google.appengine.api.datastore.FetchOptions" %>
 <%@ page import="com.google.appengine.api.datastore.Key" %>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
- 
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -69,7 +68,42 @@
     </style>
 </head>
   <body>
-
+ <header>
+     <h1 class="page_title">Expenses Application v20 from work</h1>
+  
+ <!-- tabs --> 
+ <div id="tabs" class="gtb">
+      <a id="home" href="http://cnamsmb215html.appspot.com/#home" class="tab">Home</a>	   
+		
+	  <a id="category" href="http://cnamsmb215html.appspot.com/#category" class="tab">Category</a> 
+	  <a id="expense" href="http://cnamsmb215html.appspot.com/#expense" class="tab">Expense</a>	  
+	  <a id="income" href="http://cnamsmb215html.appspot.com/#income" class="tab">Income</a>	 
+	  <a id="bilan" href="http://cnamsmb215html.appspot.com/Bilan.jsp" class="tab">Bilan</a> 
+	  <div class="gtbc"></div>
+  </div>
+    </header>
+	<nav>
+			<ul>
+				<li><a href="http://cnamsmb215html.appspot.com/#category">Category</a></li>
+				<li><a href="http://cnamsmb215html.appspot.com/#expense" >Expense</a></li>
+					<li><a href="http://cnamsmb215html.appspot.com/#income" >Income</a></li>
+				<li><a href="http://cnamsmb215html.appspot.com/Bilan.jsp" >Bilan</a></li>
+				
+					<li>
+					<ul>
+					
+					<li><a href="http://cnamsmb215.appspot.com/" >First datastore Draft Version</a></li>
+					<li><a href="http://kamalmokhthefirstdatastore.appspot.com/" >helllo appengine</a></li>
+					<li><a href="http://kamalmokhweb.appspot.com/Login.jsp" >learn app engine login works</a></li>
+				
+					
+					
+					</ul>
+					
+					</li>
+					<li><a href="http://kamalmokhweb.appspot.com/index.html">HTML 53</a></li>
+			</ul>
+		</nav>	
 
 <article>
 
@@ -85,6 +119,22 @@
  <%
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
+    String TheCatCAT="";
+    try
+    {
+    	
+    
+    	
+    	TheCatCAT=request.getQueryString().substring(2);
+    //	TheCatCATrequest.getParameter("sex") ; 	
+    	
+    }
+    catch(Exception e)
+    {
+    	TheCatCAT="All";
+    }
+    
+    
     if (user != null) {
       pageContext.setAttribute("user", user);
 %>
@@ -106,7 +156,7 @@
             <td colspan="3">
                 Select</td>
             <td colspan="3">
-                <select id="SelectCategory" name="D1">
+                <select id="SelectCategory" name="D1" onchange="window.location ='http://cnamsmb215html.appspot.com/Bilan.jsp?c='+this.value;">
                     <option>CAR</option>
                      <option>Msrouf l bait</option>
                         <option selected >All</option>
@@ -143,6 +193,8 @@
             <td colspan="5">
                 <table class="style5">
                     <tr>
+                    <td>
+                            Category</td>
                         <td>
                             Description</td>
                         <td>
@@ -162,7 +214,8 @@
     List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
     if (greetings.isEmpty()) {
         %>
-        <tr>
+        <tr><td>
+                            No Data</td>
                         <td>
                             No Data</td>
                         <td>
@@ -176,12 +229,19 @@
         
         <%
         for (Entity greeting : greetings) { 
-        
+        	if (TheCatCAT=="All"||TheCatCAT==null)
+        	{
+        	
+        	
+        	
         	allexp+=Double.parseDouble(greeting.getProperty("price").toString());
         	 
         	
         %>
         <tr>
+        
+        <td>
+                            <%= greeting.getProperty("category")%> </td>
         <td>
                             <%= greeting.getProperty("name")%> </td>
                         <td>
@@ -189,7 +249,47 @@
                         <td>
                             <%= greeting.getProperty("price")%></td>
                     </tr>
-         <%}} %>
+         <%}
+        	else
+        	{
+        	//response.getWriter().println("in datastore =|"+greeting.getProperty("category") + "|");
+        	//	response.getWriter().println("in querystring =|" + TheCatCAT + "|");
+        	//	response.getWriter().println("is equal"+greeting.getProperty("category").toString().equalsIgnoreCase(TheCatCAT));
+        		
+        		if (greeting.getProperty("category").toString().equalsIgnoreCase(TheCatCAT))
+        		{
+        			allexp+=Double.parseDouble(greeting.getProperty("price").toString());%>
+        			 <tr>
+        		        
+        		        <td>
+        		                            <%= greeting.getProperty("category")%> </td>
+        		        <td>
+        		                            <%= greeting.getProperty("name")%> </td>
+        		                        <td>
+        		                            <%= greeting.getProperty("datecreated")%></td>
+        		                        <td>
+        		                            <%= greeting.getProperty("price")%></td>
+        		                    </tr>
+        		                    <%
+        		}
+        		else
+        		{
+        			response.getWriter().print(greeting.getProperty("category"));
+        		}
+        	}
+        	
+        
+        
+        }
+        
+    
+    
+    
+    
+    
+    }
+    
+    %>
          
                     
                     
@@ -212,6 +312,8 @@
             <td colspan="5">
                 <table class="style5">
                     <tr>
+                      <td>
+                          Category</td>
                         <td>
                             Description</td>
                         <td>
@@ -229,7 +331,8 @@
     List<Entity> Incomes = datastore.prepare(query1).asList(FetchOptions.Builder.withLimit(5));
     if (Incomes.isEmpty()) {
         %>
-        <tr>
+        <tr>  <td>
+                            No Data</td>
                         <td>
                             No Data</td>
                         <td>
@@ -247,6 +350,8 @@
         	
         	%>
         <tr>
+        <td>
+                            <%= greeting.getProperty("categoryincome")%> </td>
         <td>
                             <%= greeting.getProperty("name")%> </td>
                         <td>
