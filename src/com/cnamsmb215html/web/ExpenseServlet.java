@@ -1,19 +1,9 @@
-
-//Copyright 2011, Google Inc. All Rights Reserved.
-//
-//Licensed under the Apache License, Version 2.0 (the "License");
-//you may not use this file except in compliance with the License.
-//You may obtain a copy of the License at
-//
-//http://www.apache.org/licenses/LICENSE-2.0
-//
-//Unless required by applicable law or agreed to in writing, software
-//distributed under the License is distributed on an "AS IS" BASIS,
-//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//See the License for the specific language governing permissions and
-//limitations under the License.
+ 
 package  com.cnamsmb215html.web;
-
+/**
+ * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
+ *
+ */
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.api.server.spi.types.DateAndTime;
 import com.google.appengine.api.datastore.Entity;
 
-
+ import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+ import com.google.appengine.api.users.UserServiceFactory;
 
 /**
 * This servlet responds to the request corresponding to items. The class
@@ -80,6 +72,7 @@ protected void doPut(HttpServletRequest req, HttpServletResponse resp)
  String categoryName = req.getParameter("category");
  String price = req.getParameter("price");
  String expensedatestring = req.getParameter("expensedate");
+ String expensecreatedby = req.getParameter("expensecreatedby");
  Date expensedate=new Date();
  String string = "January 2, 2010";
  Date date =new Date();
@@ -90,7 +83,7 @@ protected void doPut(HttpServletRequest req, HttpServletResponse resp)
 }
  Date datecreated= date;
  //DateTime datecreated = DateAndTime.parseRfc3339(req.getParameter("datecreated").toString());
- Expense.createOrUpdateExpense(categoryName, expenseName, price,datecreated,expensedate);
+ Expense.createOrUpdateExpense(categoryName, expenseName, price,datecreated,expensedate,expensecreatedby);
 // Expense.createOrUpdateExpense(categoryName, expenseName, price);
 }
 

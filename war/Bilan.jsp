@@ -1,3 +1,4 @@
+<%@page import="java.util.Formatter"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.google.appengine.api.users.User" %>
@@ -12,6 +13,10 @@
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<!--  /**
+ * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
+ *
+ */-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -206,6 +211,7 @@
                     <%
                     Double allexp=new Double(0);
                     Double allincome=new Double(0);
+                    Double balance=new Double(0);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Key guestbookKey = KeyFactory.createKey("category", "CAR");
     // Run an ancestor query to ensure we see the most up-to-date
@@ -346,6 +352,10 @@
         
         <%
         for (Entity greeting : Incomes) {
+        	
+        	String s="";
+        	
+        
         	allincome+=Double.parseDouble(greeting.getProperty("priceincome").toString());
         	
         	%>
@@ -377,11 +387,12 @@
         </tr>
         <tr>
             <td class="style10" colspan="2">
-                <%=allincome-allexp %> </td>
+            <%balance=allincome-allexp; %>
+                <%=balance.toString() %> </td>
             <td class="style4" colspan="2">
-                <%=allincome %></td>
+                <%=allincome.toString() %></td>
             <td class="style4" colspan="2">
-               <%=allexp %></td>
+               <%=allexp.toString() %></td>
         </tr>
     </table>
 

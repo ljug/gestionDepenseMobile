@@ -1,5 +1,8 @@
 package  com.cnamsmb215html.web;
-
+/**
+ * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
+ *
+ */
 import java.util.List;
 
 import java.io.IOException;
@@ -34,7 +37,7 @@ public class Expense {
    *          : price of the expense
    * @return
    */
- public static Entity createOrUpdateExpense(String CategoryName, String expenseName,String price,Date datecreated,Date expensedate) {
+ public static Entity createOrUpdateExpense(String CategoryName, String expenseName,String price,Date datecreated,Date expensedate,String expensecreatedby) {
 	//  public static Entity createOrUpdateExpense(String CategoryName, String expenseName,String price ) {
     Entity product =Category.getCategory(CategoryName);
     Entity expense = getSingleExpense(expenseName);
@@ -45,6 +48,7 @@ public class Expense {
     	expense.setProperty("price", price);
     	expense.setProperty("expensedate", expensedate);
     	expense.setProperty("datecreated", datecreated);
+    	expense.setProperty("expensecreatedby", datecreated);
     }
     else{
       if (price != null && !"".equals(price)) {
