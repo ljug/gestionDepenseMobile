@@ -23,7 +23,7 @@
     <script  src='script/jquery-1.6.min.js'></script>
   <script   src='script/ajax.utilv6.js'></script>
   <style type="text/css"> 
-    <title>Expenses Application v19</title>
+    <title>Expenses Application v21</title>
         .style1
         {
             border-collapse: collapse;
@@ -69,7 +69,7 @@
 </head>
   <body>
  <header>
-     <h1 class="page_title">Expenses Application v20 from work</h1>
+     <h1 class="page_title">Expenses Application v21 from home</h1>
   
  <!-- tabs --> 
  <div id="tabs" class="gtb">
