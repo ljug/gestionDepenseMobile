@@ -1,7 +1,4 @@
- /**
- * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
- *
- */
+
     #boxA, #boxB {
    float:left;padding:10px;margin:10px; -moz-user-select:none;
 }

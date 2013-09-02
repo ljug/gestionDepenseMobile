@@ -12,7 +12,10 @@
 <%@ page import="com.google.appengine.api.datastore.Key" %>
 <%@ page import="com.google.appengine.api.datastore.KeyFactory" %>
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
+<%@ page import="java.text.NumberFormat" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!--  /**
  * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
  *
@@ -87,6 +90,9 @@
 	  <div class="gtbc"></div>
   </div>
     </header>
+     <fmt:setLocale value="ar_LB"/>
+      <c:set var="greetinggreetingexp" value="<%=0%>" /> 
+ <c:set var="greetinggreeting" value="<%=0%>" /> 
 	<nav>
 			<ul>
 				<li><a href="http://cnamsmb215html.appspot.com/#category">Category</a></li>
@@ -120,11 +126,13 @@
                 <b>Account</b>
             </td>
             <td colspan="3">
-               
+            
  <%
     UserService userService = UserServiceFactory.getUserService();
     User user = userService.getCurrentUser();
     String TheCatCAT="";
+    double currentexp=0;
+    double currentincome=0;
     try
     {
     	
@@ -143,6 +151,7 @@
     if (user != null) {
       pageContext.setAttribute("user", user);
 %>
+
 <p> <%= user.getNickname() %>  (You can
 <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
 <%
@@ -159,12 +168,13 @@
         </tr>
         <tr>
             <td colspan="3">
-                Select</td>
+           Category Selected is <h2> <%=TheCatCAT %> </h2> </td>
             <td colspan="3">
+               Select Another Category
                 <select id="SelectCategory" name="D1" onchange="window.location ='http://cnamsmb215html.appspot.com/Bilan.jsp?c='+this.value;">
                     <option>CAR</option>
-                     <option>Msrouf l bait</option>
-                        <option selected >All</option>
+                     <option>House</option>
+                        <option selected >Monthly</option>
                 </select></td>
         </tr>
         <tr>
@@ -183,14 +193,11 @@
         </tr>
        
         <tr>
-            <td class="style6">
-                Expense</td>
-            <td colspan="2">
-                &nbsp;</td>
-            <td colspan="2">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td style="color:red;text-align:center;">
+               All Expenses(-)</td>
+            <td colspan="5">
+               </td>
+            
         </tr>
         <tr>
             <td class="style4">
@@ -211,7 +218,8 @@
                     <%
                     Double allexp=new Double(0);
                     Double allincome=new Double(0);
-                    Double balance=new Double(0);
+                    Double balancestring=new Double(0);
+                    
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Key guestbookKey = KeyFactory.createKey("category", "CAR");
     // Run an ancestor query to ensure we see the most up-to-date
@@ -241,7 +249,7 @@
         	
         	
         	allexp+=Double.parseDouble(greeting.getProperty("price").toString());
-        	 
+        	currentexp=Double.parseDouble(greeting.getProperty("price").toString());
         	
         %>
         <tr>
@@ -253,7 +261,8 @@
                         <td>
                             <%= greeting.getProperty("datecreated")%></td>
                         <td>
-                            <%= greeting.getProperty("price")%></td>
+                                             <c:set var="greetinggreetingexp" value="<%=currentexp%>" />
+                                             <fmt:formatNumber  value="${greetinggreetingexp}" type="currency"/>  </td>
                     </tr>
          <%}
         	else
@@ -264,7 +273,10 @@
         		
         		if (greeting.getProperty("category").toString().equalsIgnoreCase(TheCatCAT))
         		{
-        			allexp+=Double.parseDouble(greeting.getProperty("price").toString());%>
+        			allexp+=Double.parseDouble(greeting.getProperty("price").toString());
+        			
+        	currentexp=Double.parseDouble(greeting.getProperty("price").toString());
+        	%>
         			 <tr>
         		        
         		        <td>
@@ -274,7 +286,9 @@
         		                        <td>
         		                            <%= greeting.getProperty("datecreated")%></td>
         		                        <td>
-        		                            <%= greeting.getProperty("price")%></td>
+        		                         <c:set var="greetinggreetingexp" value="<%=currentexp%>" />
+                                         <fmt:formatNumber  value="${greetinggreetingexp}" type="currency"/>
+        		                            </td>
         		                    </tr>
         		                    <%
         		}
@@ -303,14 +317,11 @@
             </td>
         </tr>
            <tr>
-            <td class="style6">
-                Income</td>
-            <td colspan="2">
+            <td style="color:green;text-align:center;">
+              All Incomes (+)</td>
+            <td colspan="5">
                 &nbsp;</td>
-            <td colspan="2">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+             
         </tr>
         <tr>
             <td class="style4">
@@ -352,12 +363,15 @@
         
         <%
         for (Entity greeting : Incomes) {
+        	if (TheCatCAT=="All"||TheCatCAT==null)
+        	{
         	
         	String s="";
         	
         
         	allincome+=Double.parseDouble(greeting.getProperty("priceincome").toString());
         	
+        	currentincome=Double.parseDouble(greeting.getProperty("priceincome").toString());
         	%>
         <tr>
         <td>
@@ -367,9 +381,47 @@
                         <td>
                             <%= greeting.getProperty("datecreated")%></td>
                         <td>
-                            <%= greeting.getProperty("priceincome")%></td>
+                         <c:set var="greetinggreeting" value="<%=currentincome%>" />
+                         <fmt:formatNumber  value="${greetinggreeting}" type="currency"/>
+                        </td>
                     </tr>
-         <%}} %>
+         <%}
+        	
+        	else
+        	{
+        		
+        		if (greeting.getProperty("categoryincome").toString().equalsIgnoreCase(TheCatCAT))
+        		{
+        			 
+        			allincome+=Double.parseDouble(greeting.getProperty("priceincome").toString());
+        			currentincome=Double.parseDouble(greeting.getProperty("priceincome").toString());
+        	%>
+        			 <tr>
+        		        
+        		        <td>
+        		                            <%= greeting.getProperty("categoryincome")%> </td>
+        		        <td>
+        		                            <%= greeting.getProperty("name")%> </td>
+        		                        <td>
+        		                            <%= greeting.getProperty("datecreated")%></td>
+        		                        <td>
+        		                         <c:set var="greetinggreeting" value="<%=currentincome%>" />
+                         <fmt:formatNumber  value="${greetinggreeting}" type="currency"/>
+        		                            </td>
+        		                    </tr>
+        		                    <%
+        		}
+        		else
+        		{
+        			response.getWriter().print(greeting.getProperty("categoryincome"));
+        		}    		
+        		
+        	}
+        	}
+        
+        }
+    
+         %>
          
                     
                     
@@ -378,21 +430,32 @@
         </tr>
         
         <tr>
-            <td class="style8" colspan="2">
+            <td style="color:blue;text-align:center;" colspan="2">
                 Balance</td>
-            <td class="style9" colspan="2">
+            <td style="color:green;text-align:center;" colspan="2">
                 Income Total</td>
-            <td class="style4" colspan="2">
+            <td  style="color:red;text-align:center;" colspan="2">
                 Expense Total</td>
         </tr>
         <tr>
-            <td class="style10" colspan="2">
-            <%balance=allincome-allexp; %>
-                <%=balance.toString() %> </td>
-            <td class="style4" colspan="2">
-                <%=allincome.toString() %></td>
-            <td class="style4" colspan="2">
-               <%=allexp.toString() %></td>
+        
+            <td style="color:blue;text-align:center;"  colspan="2">
+            <%balancestring=allincome-allexp; %>
+             <c:set var="balance" value="<%=balancestring %>" />
+             <c:set var="Fallincome" value="<%=allincome %>" />
+             <c:set var="Fallexp" value="<%=allexp %>" />
+            
+			 <fmt:formatNumber value="${balance}" type="currency"/>
+            
+                 </td>
+            <td style="color:green;text-align:center;" colspan="2">
+              
+                 <fmt:formatNumber value="${Fallincome}" type="currency"/>
+                </td>
+            <td style="color:red;text-align:center;" colspan="2">
+            
+                <fmt:formatNumber value="${Fallexp}" type="currency"/>
+               </td>
         </tr>
     </table>
 
@@ -405,7 +468,7 @@
 
     <form action="/bilan" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
-      <div><input type="submit" value="Get Bilan" /></div>
+      <div><input type="submit" value="Comments" /></div>
        
     </form>
     </section>
