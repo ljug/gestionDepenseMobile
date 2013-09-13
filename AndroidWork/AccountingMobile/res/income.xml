@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black" >
+
+ 
+    
+      <TextView
+    android:id="@+id/tvIncomeForm" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Income_Form"
+    android:textSize="20sp"
+    android:textColor="#FFFFFF"
+    android:gravity="center"
+    android:textStyle="bold"/>
+ 
+
+    
+    
+    <TextView
+    android:id="@+id/tvincName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeName"/>
+  
+
+
+  
+  <TextView
+        android:id="@+id/tvIncomeName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+  
+  
+  <TextView
+    android:id="@+id/tv1" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvpayMethod" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/PaymentMethod"/>
+  
+  <TextView
+        android:id="@+id/tvPaymentMethod"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+    
+  <TextView
+    android:id="@+id/tv2" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvpay" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Payer"/>
+  
+  <TextView
+        android:id="@+id/tvPayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+    <TextView
+    android:id="@+id/tv3" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvincAmount" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeAmount"/>
+  
+  <TextView
+        android:id="@+id/tvIncomeAmount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+   <TextView
+    android:id="@+id/tv4" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvincCategory" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Category"/>
+  
+  <TextView
+        android:id="@+id/tvIncomeCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+  
+  
+     <TextView
+    android:id="@+id/tv5" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvdate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CreatedDate"/>
+  
+  <TextView
+        android:id="@+id/tvCreatedDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+      <TextView
+    android:id="@+id/tv6" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvincDate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeDate"/>
+  
+  <TextView
+        android:id="@+id/tvIncomeDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+  
+     
+  
+   
+      
+  
+
+</LinearLayout>

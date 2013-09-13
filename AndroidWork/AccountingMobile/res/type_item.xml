@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" 
+	android:orientation="vertical"
+	android:layout_width="fill_parent" 
+	android:id="@+id/LinearLayoutItem"
+	android:background="@color/black">
+	
+	<LinearLayout android:id="@+id/linearLayoutDetails"
+				  android:orientation="horizontal" 
+				  android:layout_height="fill_parent"
+				  android:layout_width="fill_parent"
+				  android:background="@color/black">
+			
+		<TextView android:id="@+id/tvName"
+        		  android:layout_width="wrap_content"
+        		  android:layout_gravity="left"
+       			  android:layout_height="wrap_content"
+        		  android:padding="1dip"
+        		  android:textSize="20sp" 
+        		  android:textColor="#ffffff"
+        	      android:textStyle="bold" 
+        	      android:text=""/> 
+        	        	
+        <TextView android:id="@+id/TextView01" 
+           		  android:layout_width="0dip"
+			  	  android:layout_height="wrap_content" 
+				  android:layout_weight="1"
+				  android:text="">
+        </TextView>
+		
+		<TextView android:id="@+id/tvCategory"
+        		  android:layout_width="wrap_content"
+        		  android:layout_gravity="left"
+       			  android:layout_height="wrap_content"
+        		  android:padding="1dip"
+        		  android:textSize="20sp" 
+        		  android:textColor="#ffffff"
+        	      android:textStyle="bold" 
+        	      android:text=""/> 
+		
+	</LinearLayout>
+	
+	<LinearLayout android:id="@+id/linearLayoutQuantity"
+				  android:orientation="horizontal" 
+				  android:layout_width="match_parent"
+				  android:layout_margin="5dip" 
+				  android:layout_height="wrap_content"
+				  android:layout_gravity="left"
+				  android:background="@color/black">
+		
+	    <TextView android:layout_width="100dip"
+			android:layout_height="wrap_content" 
+			android:text=""
+			android:textSize="18sp" 
+			android:textColor="#ffffff" 
+			android:id="@+id/tvAmount">
+		</TextView>
+		
+	      <TextView android:id="@+id/TextView02" 
+           		  android:layout_width="0dip"
+			  	  android:layout_height="wrap_content" 
+				  android:layout_weight="1"
+				  android:text="">
+        </TextView>
+	
+	
+		<TextView android:layout_width="100dip"
+			android:layout_height="wrap_content" 
+			android:text=""
+			android:textSize="18sp" 
+			android:textColor="#ffffff" 
+			android:id="@+id/tvDate">
+		</TextView>
+		
+	
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center|center_vertical"
+    android:background="@color/black">
+<TextView
+    android:id="@+id/tv1" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Expense"
+    android:textSize="20sp"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"/>
+ 
+<TextView
+    android:id="@+id/tvExpenseName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseName"/>
+ 
+<EditText
+    android:text=""
+    android:id="@+id/etExpenseName"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true" android:inputType="textVisiblePassword">
+</EditText>
+
+<TextView
+    android:id="@+id/tvExpenseAmount" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseAmount"/>
+
+<EditText
+    android:id="@+id/etExpenseAmount"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true" android:inputType="numberDecimal">"
+</EditText>
+
+
+<TextView
+    android:id="@+id/tvExpDate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseDate"/>
+
+<TextView
+        android:id="@+id/tvExpenseDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Button"
+        android:text=""
+         />
+
+<TextView
+    android:id="@+id/tvExpenseCategory" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Category"/>
+
+
+  <!-- Spinner Dropdown -->
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+       
+        android:layout_marginTop="10dip"
+        android:prompt="@string/spinner_title" />
+
+<Button
+    android:text="@string/btn_save"
+    android:id="@+id/Btn_save_expense"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+</Button>
+
+ 
+</LinearLayout>

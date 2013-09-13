@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center|center_vertical"
+    android:background="@color/black">
+<TextView
+    android:id="@+id/tv1" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Income"
+    android:textSize="20sp"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"/>
+ 
+<TextView
+    android:id="@+id/tvIncomeName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeName"/>
+ 
+<EditText
+    android:text=""
+    android:id="@+id/etIncomeName"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:singleLine="true" android:inputType="textVisiblePassword">
+</EditText>
+
+
+<TextView
+    android:id="@+id/tvIncomePayMethod" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/spinner_payment"/>
+
+
+  <!-- Spinner Dropdown -->
+
+    <Spinner
+        android:id="@+id/spinner_payment"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:prompt="@string/spinner_payment" />
+
+    
+    
+    <TextView
+    android:id="@+id/tvpay" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Payer"/>
+
+<EditText
+    android:id="@+id/etIncomePayer"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:singleLine="true" android:inputType="textVisiblePassword">
+</EditText>
+    
+ 
+
+
+<TextView
+    android:id="@+id/tvIncomeAmount" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeAmount"/>
+
+<EditText
+    android:id="@+id/etIncomeAmount"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:singleLine="true" android:inputType="numberDecimal">
+</EditText>
+
+
+<TextView
+    android:id="@+id/tvIncomeCategory" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Category"/>
+
+
+  <!-- Spinner Dropdown -->
+
+    <Spinner
+        android:id="@+id/spinnerIncomeCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:prompt="@string/spinner_title" />
+
+
+<TextView
+    android:id="@+id/tvIncDate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/IncomeDate"/>
+
+<TextView
+        android:id="@+id/tvIncomeDate"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        style="@android:style/Widget.Button"
+        android:text=""
+         />
+
+
+<Button
+    android:text="@string/btn_save"
+    android:id="@+id/Btn_save_income"
+    android:layout_width="fill_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+</Button>
+
+ 
+</LinearLayout>

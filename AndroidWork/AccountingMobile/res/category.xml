@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black" >
+
+ 
+    
+      <TextView
+    android:id="@+id/tvcatForm" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Category_Form"
+    android:textSize="20sp"
+    android:textColor="#FFFFFF"
+    android:gravity="center"
+    android:textStyle="bold"/>
+ 
+
+    
+    
+    <TextView
+    android:id="@+id/tvcatName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CategoryName"/>
+  
+
+
+  
+  <TextView
+        android:id="@+id/tvCategoryName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="@string/hello_world" />
+  
+  
+    <TextView
+    android:id="@+id/tv0" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvcatDesc" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CategoryDesc"/>
+  
+  <TextView
+        android:id="@+id/tvCategoryDesc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="@string/hello_world" />
+      
+  
+
+</LinearLayout>

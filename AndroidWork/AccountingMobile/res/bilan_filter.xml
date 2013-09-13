@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center|center_vertical"
+    android:background="@color/black">
+
+<TextView
+    android:id="@+id/tvCategory" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Category"/>
+
+
+  <!-- Spinner Dropdown -->
+
+    <Spinner
+        android:id="@+id/spinnerFilterCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:prompt="@string/spinner_title" />
+
+
+
+<Button
+    android:text="@string/btn_filter"
+    android:id="@+id/Btn_filter"
+    android:layout_width="fill_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+</Button>
+
+ 
+</LinearLayout>

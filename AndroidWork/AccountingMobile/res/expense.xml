@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black" >
+
+ 
+    
+      <TextView
+    android:id="@+id/tvExpenseForm" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Expense_Form"
+    android:textSize="20sp"
+    android:textColor="#FFFFFF"
+    android:gravity="center"
+    android:textStyle="bold"/>
+ 
+
+    
+    
+    <TextView
+    android:id="@+id/tvexpName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseName"/>
+  
+
+
+  
+  <TextView
+        android:id="@+id/tvExpenseName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+    <TextView
+    android:id="@+id/tv1" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvexpAmount" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseAmount"/>
+  
+  <TextView
+        android:id="@+id/tvExpenseAmount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+      <TextView
+    android:id="@+id/tv2" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvexpDate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/ExpenseDate"/>
+  
+  <TextView
+        android:id="@+id/tvExpenseDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+  
+      <TextView
+    android:id="@+id/tv3" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvexpCategory" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/Category"/>
+  
+  <TextView
+        android:id="@+id/tvExpenseCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+  
+  
+      <TextView
+    android:id="@+id/tv4" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+ 
+
+  
+ <TextView
+    android:id="@+id/tvdate" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CreatedDate"/>
+  
+  <TextView
+        android:id="@+id/tvCreatedDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="" />
+      
+  
+
+</LinearLayout>

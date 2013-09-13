@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center|center_vertical"
+    android:background="@color/black">
+<TextView
+    android:id="@+id/tv1" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/Category_Form"
+    android:textSize="20sp"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"/>
+ 
+<TextView
+    android:id="@+id/tvCategoryName" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CategoryName"/>
+ 
+<EditText
+    android:text=""
+    android:id="@+id/etCategoryName"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true" android:inputType="textVisiblePassword">
+</EditText>
+
+<TextView
+    android:id="@+id/tvCategoryDesc" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:text="@string/CategoryDesc"/>
+
+<EditText
+    android:text=""
+    android:id="@+id/etCategoryDesc"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true" android:inputType="textVisiblePassword">
+</EditText>
+
+<Button
+    android:text="@string/btn_save"
+    android:id="@+id/Btn_save"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+</Button>
+
+ 
+</LinearLayout>
