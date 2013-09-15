@@ -18,7 +18,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!--  /**
  * @author or Modified by  Kamal Mokh 8921f CNAM 2013 kamal.mokh@isae.edu.lb
- *
+ *https://github.com/pascalfares/gestionDepenseMobile
  */-->
 <!DOCTYPE HTML>
 <html>
@@ -77,16 +77,18 @@
 </head>
   <body>
  <header>
-     <h1 class="page_title">Expenses Application v21 from home</h1>
+     <h1 class="page_title">Manage Expense Application v3.0</h1>
   
  <!-- tabs --> 
  <div id="tabs" class="gtb">
       <a id="home" href="http://cnamsmb215html.appspot.com/#home" class="tab">Home</a>	   
-		
+
 	  <a id="category" href="http://cnamsmb215html.appspot.com/#category" class="tab">Category</a> 
 	  <a id="expense" href="http://cnamsmb215html.appspot.com/#expense" class="tab">Expense</a>	  
 	  <a id="income" href="http://cnamsmb215html.appspot.com/#income" class="tab">Income</a>	 
 	  <a id="bilan" href="http://cnamsmb215html.appspot.com/Bilan.jsp" class="tab">Bilan</a> 
+	  <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">download source</a>
+	   <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> 
 	  <div class="gtbc"></div>
   </div>
     </header>
@@ -99,28 +101,37 @@
 				<li><a href="http://cnamsmb215html.appspot.com/#expense" >Expense</a></li>
 					<li><a href="http://cnamsmb215html.appspot.com/#income" >Income</a></li>
 				<li><a href="http://cnamsmb215html.appspot.com/Bilan.jsp" >Bilan</a></li>
-				
+
 					<li>
 					<ul>
-					
+
 					<li><a href="http://cnamsmb215.appspot.com/" >First datastore Draft Version</a></li>
 					<li><a href="http://kamalmokhthefirstdatastore.appspot.com/" >helllo appengine</a></li>
 					<li><a href="http://kamalmokhweb.appspot.com/Login.jsp" >learn app engine login works</a></li>
-				
-					
-					
+
+
+
 					</ul>
-					
+
 					</li>
 					<li><a href="http://kamalmokhweb.appspot.com/index.html">HTML 53</a></li>
+					<li> <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">Download source code</a></li>
+					<li> <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> </li>
 			</ul>
 		</nav>	
 
 <article>
 
 <section>
-
-    <table align="center" class="style1">
+<div >
+ Select  Category
+                <select id="SelectCategory" name="D1" onchange="window.location ='http://cnamsmb215html.appspot.com/Bilan.jsp?c='+this.value;">
+                    <option>CAR</option>
+                     <option>House</option>
+                        <option selected >Monthly</option>
+                </select>
+    <table align="center" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;" >
+     <thead>
         <tr>
             <td colspan="3">
                 <b>Account</b>
@@ -168,30 +179,13 @@
         </tr>
         <tr>
             <td colspan="3">
-           Category Selected is <h2> <%=TheCatCAT %> </h2> </td>
+           Category Selected is  </td>
             <td colspan="3">
-               Select Another Category
-                <select id="SelectCategory" name="D1" onchange="window.location ='http://cnamsmb215html.appspot.com/Bilan.jsp?c='+this.value;">
-                    <option>CAR</option>
-                     <option>House</option>
-                        <option selected >Monthly</option>
-                </select></td>
-        </tr>
-        <tr>
-            <td class="style4" colspan="6">
-                <input id="Radio1" checked="checked" name="R1" type="radio" value="V1" />All<input id="Radio2"  name="R2" type="radio" value="V1" />Weekly<input id="Radio4"   name="R4" type="radio" value="V1" />Monthly<input id="Radio3"  name="R3" type="radio" value="V1" />Yearly</td>
-        </tr>
-        <tr>
-            <td class="style4">
-                From</td>
-            <td colspan="2">
-                <input id="Text1" type="date" /></td>
-            <td colspan="2">
-                To</td>
-            <td>
-                <input id="Text2" type="date" /></td>
+            <h2> <%=TheCatCAT %> </h2>
+              </td>
         </tr>
        
+     </thead>   
         <tr>
             <td style="color:red;text-align:center;">
                All Expenses(-)</td>
@@ -204,7 +198,7 @@
                 &nbsp;</td>
             <td colspan="5">
                 <table class="style5">
-                    <tr>
+                    <tr style="background-color:#ebeff9">
                     <td>
                             Category</td>
                         <td>
@@ -294,7 +288,7 @@
         		}
         		else
         		{
-        			response.getWriter().print(greeting.getProperty("category"));
+        			response.getWriter().print("");
         		}
         	}
         	
@@ -328,7 +322,7 @@
                 &nbsp;</td>
             <td colspan="5">
                 <table class="style5">
-                    <tr>
+                    <tr style="background-color:#ebeff9">
                       <td>
                           Category</td>
                         <td>
@@ -413,7 +407,7 @@
         		}
         		else
         		{
-        			response.getWriter().print(greeting.getProperty("categoryincome"));
+        			response.getWriter().print("");
         		}    		
         		
         	}
@@ -459,19 +453,12 @@
         </tr>
     </table>
 
-
+</div>
 </section>
 
 
  
- <section>
-
-    <form action="/bilan" method="post">
-      <div><textarea name="content" rows="3" cols="60"></textarea></div>
-      <div><input type="submit" value="Comments" /></div>
-       
-    </form>
-    </section>
+ 
     </article>
 <footer>
 			<h4>About Mobile Accounting SMB215 - Kamal Mokh, Ahmad Shaaban 

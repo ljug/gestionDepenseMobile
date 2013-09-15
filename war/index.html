@@ -12,13 +12,13 @@
   <link  href="/css/styles.css" rel="stylesheet" type="text/css"   />
   <script language="javascript" src='script/jquery-1.6.min.js'></script>
   <script language="javascript" src='script/ajax.utilv6.js'></script>
-    <title>Expenses Application v21</title>
+    <title>Manage Expense Application v3.0</title>
   </head>
 
   <body>
     <!-- content -->  
     <header>
-     <h1 class="page_title">Expenses Application v21 from Home</h1>
+  <h1 class="page_title">Manage Expense Application v3.0</h1>
   
  <!-- tabs --> 
  <div id="tabs" class="gtb">
@@ -27,7 +27,9 @@
 	  <a id="category" href="#category" class="tab">Category</a> 
 	  <a id="expense" href="#expense" class="tab">Expense</a>	  
 	  <a id="income" href="#income" class="tab">Income</a>	 
-	  <a id="bilan" href="http://cnamsmb215html.appspot.com/Bilan.jsp" class="tab">Bilan</a>	 
+	  <a id="bilan" href="http://cnamsmb215html.appspot.com/Bilan.jsp" class="tab">Bilan</a>	
+	  	 <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">Download source code</a>
+	  	 <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> 
 	  <div class="gtbc"></div>
   </div>
     </header>
@@ -42,8 +44,8 @@
 					<ul>
 					
 					<li><a href="http://cnamsmb215.appspot.com/" >First datastore Draft Version</a></li>
-					<li><a href="http://kamalmokhthefirstdatastore.appspot.com/" >helllo appengine</a></li>
-					<li><a href="http://kamalmokhweb.appspot.com/Login.jsp" >learn app engine login works</a></li>
+					<li><a href="http://kamalmokhthefirstdatastore.appspot.com/" >hello appengine</a></li>
+					<li><a href="http://kamalmokhweb.appspot.com/Login.jsp" > login works</a></li>
 				
 					
 					
@@ -51,6 +53,8 @@
 					
 					</li>
 					<li><a href="http://kamalmokhweb.appspot.com/index.html">HTML 53</a></li>
+					<li> <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">Download Source</a></li>
+					<li> <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> </li>
 			</ul>
 		</nav>	
 		
@@ -206,7 +210,7 @@
            </tr>
            <tr>
              <td>Expense Amount</td>
-             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="7" name="price" id="price" />LBP</td>
+             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="6" name="price" id="price" />LBP</td>
            </tr>
            <tr>
              <tr>
@@ -298,7 +302,7 @@
            </tr>
            <tr>
              <td>Payment Amount</td>
-             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="7" name="priceincome" id="priceincome" />LBP</td>
+             <td><input type="number" style="width: 185px;" autocomplete="off" class="gsc-input" required maxlength="6" name="priceincome" id="priceincome" />LBP</td>
            </tr>
            <tr>
             <tr>           
