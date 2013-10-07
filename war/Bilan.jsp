@@ -1,7 +1,7 @@
 <%@page import="java.util.Formatter"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.google.appengine.api.users.User" %>
+ <%@ page import="com.google.appengine.api.users.User" %>
 <%@ page import="com.google.appengine.api.users.UserService" %>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 <%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
@@ -87,8 +87,7 @@
 	  <a id="expense" href="http://cnamsmb215html.appspot.com/#expense" class="tab">Expense</a>	  
 	  <a id="income" href="http://cnamsmb215html.appspot.com/#income" class="tab">Income</a>	 
 	  <a id="bilan" href="http://cnamsmb215html.appspot.com/Bilan.jsp" class="tab">Bilan</a> 
-	  <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">download source</a>
-	   <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> 
+	 
 	  <div class="gtbc"></div>
   </div>
     </header>
@@ -115,20 +114,39 @@
 
 					</li>
 					<li><a href="http://kamalmokhweb.appspot.com/index.html">HTML 53</a></li>
-					<li> <a id="downloadsource" href="https://github.com/pascalfares/gestionDepenseMobile/archive/19edacca93de2edda6ae573bcf3db1479bdcd6f9.zip" class="tab">Download source code</a></li>
-					<li> <a id="blkupload" href="http://cnamsmb215html.appspot.com/GetAll.jsp">Bulk Upload Offline data</a> </li>
+					
 			</ul>
 		</nav>	
 
 <article>
+<%
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+Query query5 = new Query("Category") ;
+List<Entity> catlst = datastore.prepare(query5).asList(FetchOptions.Builder.withLimit(1500));
 
+%>
 <section>
 <div >
  Select  Category
                 <select id="SelectCategory" name="D1" onchange="window.location ='http://cnamsmb215html.appspot.com/Bilan.jsp?c='+this.value;">
-                    <option>CAR</option>
-                     <option>House</option>
-                        <option selected >Monthly</option>
+                <% if (catlst.isEmpty()) {
+                    %>
+                    <option>---</option>
+                    <%
+                }
+                else
+                {
+                    %>
+                     <option selected >All</option>
+                       <%for (Entity caa : catlst) {
+                    	   String ccc="";
+                    	   ccc=caa.getKey().toString();
+                    	   ccc=ccc.substring(10,ccc.length()-2);
+                    	   %>
+                       
+                    <option><%=ccc%></option>
+                   <%}
+                       }%>
                 </select>
     <table align="center" cellspacing="0" cellpadding="2" border="0" style="border-collapse:collapse;" >
      <thead>
@@ -214,12 +232,12 @@
                     Double allincome=new Double(0);
                     Double balancestring=new Double(0);
                     
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+  
     Key guestbookKey = KeyFactory.createKey("category", "CAR");
     // Run an ancestor query to ensure we see the most up-to-date
     // view of the Greetings belonging to the selected Guestbook.
     Query query = new Query("Expense").addSort("datecreated", Query.SortDirection.DESCENDING);
-    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(5));
+    List<Entity> greetings = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(1500));
     if (greetings.isEmpty()) {
         %>
         <tr><td>
@@ -339,7 +357,7 @@
     // Run an ancestor query to ensure we see the most up-to-date
     // view of the Greetings belonging to the selected Guestbook.
     Query query1 = new Query("Income").addSort("datecreated", Query.SortDirection.DESCENDING);
-    List<Entity> Incomes = datastore.prepare(query1).asList(FetchOptions.Builder.withLimit(5));
+    List<Entity> Incomes = datastore.prepare(query1).asList(FetchOptions.Builder.withLimit(1500));
     if (Incomes.isEmpty()) {
         %>
         <tr>  <td>
